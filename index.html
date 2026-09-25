@@ -54,7 +54,7 @@
 <body class="bg-brand-light text-gray-800 antialiased selection:bg-brand-saffron selection:text-white">
 
     <!-- Navigation Bar -->
-    <nav class="glass-nav fixed w-full z-50 border-b border-gray-200 shadow-sm transition-all duration-300">
+   <nav id="navbar" class="glass-nav fixed top-0 w-full z-50 border-b border-gray-200 shadow-sm transition-transform duration-300">
         <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <!-- Logo and Name (Now responsive and visible on mobile) -->
@@ -355,6 +355,23 @@
             </div>
         </div>
     </footer>
+<!-- Script to Auto-Hide Navbar on Scroll Down -->
+    <script>
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('navbar');
 
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // If scrolling down and past the header height
+            if (scrollTop > lastScrollTop && scrollTop > 80) {
+                navbar.style.transform = 'translateY(-100%)'; // Hide
+            } else {
+                navbar.style.transform = 'translateY(0)'; // Show
+            }
+            
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; 
+        }, false);
+    </script>
 </body>
 </html>
