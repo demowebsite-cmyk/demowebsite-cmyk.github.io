@@ -1,489 +1,290 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ujjayini Mahakal Tantra Sadhana Pith</title>
-    <meta name="description" content="UJJAYINI MAHAKAL TANTRA SADHANA PITH SHIKSHAN V DHARMIK EVAM SAMAJIK SANSTH - A charitable trust dedicated to education, religious, and social welfare.">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --saffron: #FF9933;
+            --maroon: #800000;
+            --gold: #FFD700;
+            --white: #FFFFFF;
+            --dark: #333333;
+        }
+        
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fdf5e6;
+            color: var(--dark);
+        }
 
-    <!-- Tailwind Configuration -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        saffron: '#FF9933',
-                        maroon: '#800000',
-                        gold: '#FFD700',
-                        'gold-light': '#FFF0A8',
-                        'maroon-dark': '#4A0000',
-                    },
-                    fontFamily: {
-                        heading: ['Merriweather', 'serif'],
-                        body: ['Poppins', 'sans-serif'],
-                    }
-                }
+        /* Navigation Bar */
+        header {
+            background-color: var(--maroon);
+            color: var(--gold);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .site-logo {
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+            object-fit: cover;
+        }
+
+        .site-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            max-width: 300px;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(128, 0, 0, 0.8), rgba(255, 153, 51, 0.8)), url('4c43049c-ea03-44bf-a242-4b417ced8dad.JPG') center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: var(--gold);
+            text-shadow: 2px 2px 4px #000;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            color: var(--maroon);
+            font-size: 2rem;
+            margin: 40px 0 20px;
+            border-bottom: 3px solid var(--gold);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        /* Galleries */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            padding: 20px 0;
+        }
+
+        .gallery-item {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 3px solid var(--saffron);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+            border-color: var(--maroon);
+        }
+
+        .video-item {
+            width: 100%;
+            border-radius: 8px;
+            border: 3px solid var(--saffron);
+            background: #000;
+        }
+
+        /* Payment/Donation Section */
+        .donate-section {
+            background-color: var(--white);
+            padding: 40px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin: 40px auto;
+            max-width: 600px;
+        }
+
+        .donate-btn {
+            background-color: var(--maroon);
+            color: var(--gold);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 20px;
+        }
+
+        .donate-btn:hover {
+            background-color: var(--saffron);
+            color: var(--white);
+        }
+
+        .bank-details {
+            text-align: left;
+            margin-top: 20px;
+            background: #f9f9f9;
+            padding: 20px;
+            border-left: 5px solid var(--maroon);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+        
+        footer .site-logo {
+            margin-bottom: 15px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .site-title {
+                text-align: center;
             }
         }
-    </script>
-
-    <style>
-        .text-shadow { text-shadow: 2px 2px 4px rgba(0,0,0,0.7); }
-        .nav-link::after {
-            content: '';
-            display: block;
-            width: 0;
-            height: 2px;
-            background: #FFD700;
-            transition: width 0.3s;
-        }
-        .nav-link:hover::after { width: 100%; }
     </style>
 </head>
-<body class="font-body text-gray-800 bg-orange-50 flex flex-col min-h-screen">
+<body>
 
-    <!-- Header Navigation -->
-    <header class="bg-maroon text-gold sticky top-0 z-50 shadow-xl border-b-4 border-saffron">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20 md:h-24">
-                <!-- Logo & Name -->
-                <div class="flex items-center gap-3">
-                    <div class="flex-shrink-0 flex items-center justify-center bg-white rounded-full p-0.5 border-2 border-gold shadow-lg">
-                        <img src="8e47fde2-8b80-4281-be30-0216c6bee5ee.jpeg" alt="Ujjayini Mahakal Logo" class="h-10 w-10 md:h-14 md:w-14 rounded-full object-cover">
-                    </div>
-                    <div class="flex flex-col">
-                        <span class="font-heading font-bold text-sm sm:text-lg md:text-xl leading-tight text-white shadow-sm">UJJAYINI MAHAKAL</span>
-                        <span class="text-[0.6rem] sm:text-xs text-gold-light hidden sm:block">TANTRA SADHANA PITH</span>
-                    </div>
-                </div>
-
-                <!-- Desktop Menu -->
-                <nav class="hidden md:flex space-x-6 lg:space-x-8 items-center">
-                    <a href="#home" class="nav-link text-white hover:text-gold transition-colors font-medium">Home</a>
-                    <a href="#about" class="nav-link text-white hover:text-gold transition-colors font-medium">About</a>
-                    <a href="#gallery" class="nav-link text-white hover:text-gold transition-colors font-medium">Gallery</a>
-                    <a href="#donate" class="bg-saffron text-white px-5 py-2 rounded-full font-bold hover:bg-orange-600 transition-colors shadow-md border border-saffron hover:border-white">Donate</a>
-                </nav>
-
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-gold hover:text-white focus:outline-none p-2">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
-                </div>
-            </div>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="logo-container">
+            <img src="8e47fde2-8b80-4281-be30-0216c6bee5ee.jpeg" alt="Sanstha Logo" class="site-logo">
+            <div class="site-title">UJJAYINI MAHAKAL TANTRA SADHANA PITH SHIKSHAN V DHARMIK EVAM SAMAJIK SANSTH</div>
         </div>
-
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden bg-maroon-dark border-t border-red-900 absolute w-full shadow-xl">
-            <div class="px-4 py-4 space-y-2">
-                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-gold hover:bg-maroon">Home</a>
-                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-gold hover:bg-maroon">About</a>
-                <a href="#gallery" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-gold hover:bg-maroon">Gallery</a>
-                <a href="#donate" class="block px-3 py-2 mt-4 text-center rounded-md text-base font-bold text-maroon bg-gold hover:bg-yellow-500">Donate Now</a>
-            </div>
-        </div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#portfolio">Photos</a>
+            <a href="#videos">Videos</a>
+            <a href="#donate">Donate</a>
+        </nav>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="relative bg-black h-[70vh] min-h-[500px] flex items-center justify-center text-center">
-        <!-- Background Overlay -->
-        <div class="absolute inset-0 z-0">
-            <div class="absolute inset-0 bg-gradient-to-b from-maroon/80 via-black/60 to-black/90 z-10"></div>
-            <img src="https://images.unsplash.com/photo-1621847468516-1ed5d0c56a4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Temple Background" class="w-full h-full object-cover" />
-        </div>
-
-        <div class="relative z-20 max-w-4xl mx-auto px-4 flex flex-col items-center mt-10">
-            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold text-white text-shadow leading-tight mb-2 tracking-wide uppercase">
-                Ujjayini Mahakal
-            </h1>
-            <h2 class="text-xl sm:text-2xl md:text-3xl text-gold font-bold mb-6 text-shadow uppercase">
-                Tantra Sadhana Pith
-            </h2>
-            <p class="text-sm sm:text-base text-gray-200 font-medium mb-8 max-w-2xl bg-black/40 p-4 rounded-lg backdrop-blur-sm border border-gray-600">
-                SHIKSHAN V DHARMIK EVAM SAMAJIK SANSTH<br>
-                <span class="font-normal block mt-2 text-gold-light">Dedicated to spiritual awakening, educational empowerment, and social welfare in the service of humanity.</span>
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                <a href="#donate" class="bg-saffron text-white px-8 py-3 rounded-full font-bold text-lg hover:bg-orange-600 transition-all shadow-[0_0_15px_rgba(255,153,51,0.5)] border-2 border-saffron hover:scale-105 w-full sm:w-auto text-center">
-                    Make a Donation
-                </a>
-                <a href="#gallery" class="bg-transparent border-2 border-gold text-gold px-8 py-3 rounded-full font-bold text-lg hover:bg-gold hover:text-maroon transition-all hover:scale-105 w-full sm:w-auto text-center">
-                    View Portfolio
-                </a>
-            </div>
-        </div>
+    <section id="home" class="hero">
+        <h1>Welcome to Ujjayini Mahakal Tantra Sadhana Pith</h1>
+        <p>A charitable, religious, and social organization dedicated to the welfare of society, spiritual awakening, and spreading the divine message of Sanatan Dharma.</p>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-16 md:py-24 bg-white relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-heading font-bold text-maroon mb-4">About Our Sanstha</h2>
-                <div class="h-1.5 w-24 bg-saffron mx-auto rounded-full"></div>
-            </div>
+    <div class="container" id="about">
+        <h2 class="section-title">About Our Sanstha</h2>
+        <p>Our organization strives to uplift the underprivileged, organize religious and spiritual events (Pujas, Yagnas, Annadaan), and promote educational and social harmony in the community.</p>
+    </div>
+
+    <!-- Photo Gallery Portfolio -->
+    <div class="container" id="portfolio">
+        <h2 class="section-title">Photo Gallery & Portfolio</h2>
+        <div class="gallery-grid">
+            <img src="4c43049c-ea03-44bf-a242-4b417ced8dad.JPG" alt="Gallery Image 1" class="gallery-item">
+            <img src="8e1ed896-480e-4bde-a803-3b95ea7a3d80.JPG" alt="Gallery Image 2" class="gallery-item">
+            <img src="35db5755-01cf-4ccb-897c-234f8870b0ac.JPG" alt="Gallery Image 3" class="gallery-item">
+            <img src="75b275f4-8fed-49b2-91f2-caefac94a110.JPG" alt="Gallery Image 4" class="gallery-item">
+            <img src="96f2de45-c293-4097-8b4b-ad48600a6197.JPG" alt="Gallery Image 5" class="gallery-item">
+            <img src="423e6a32-9e14-4d1a-b812-30d9cee43c7e.JPG" alt="Gallery Image 6" class="gallery-item">
+            <img src="824f6ab7-f0df-4c3e-a8b7-3429f986a6aa.JPG" alt="Gallery Image 7" class="gallery-item">
+            <img src="989d5959-3df8-42d9-b170-8217c9d30827.JPG" alt="Gallery Image 8" class="gallery-item">
+            <img src="9282c8d0-3068-4913-bbe8-bbd33c64d00e.JPG" alt="Gallery Image 9" class="gallery-item">
+            <img src="374987e5-fa51-42ba-a095-45610396eacb.JPG" alt="Gallery Image 10" class="gallery-item">
+        </div>
+    </div>
+
+    <!-- Video Gallery Section -->
+    <div class="container" id="videos">
+        <h2 class="section-title">Darshan & Event Videos</h2>
+        <div class="gallery-grid">
+            <video src="648fb550-6fcc-4b64-b676-012948b8ef92.MP4" controls class="video-item"></video>
+            <video src="54958fd0-e5ff-44ba-9c1b-beb21c43d72e.MP4" controls class="video-item"></video>
+            <video src="837836c6-0c42-4725-b883-7c0b54f62783.MP4" controls class="video-item"></video>
+            <video src="9807580d-aafb-4b45-82aa-53bb4455ba6d.MP4" controls class="video-item"></video>
+            <video src="af3eca17-1218-4b74-a1db-d8efd8f67e7b.MP4" controls class="video-item"></video>
+            <video src="da7077f2-5e7c-44f0-b347-fb7860342cd9.MP4" controls class="video-item"></video>
+            <video src="e0ad4b12-e79e-4f15-a986-adb9b307820b.MP4" controls class="video-item"></video>
+            <video src="VIDEO-2026-09-25-22-36-51.mp4" controls class="video-item"></video>
+        </div>
+    </div>
+
+    <!-- Donate / Payment Method Section -->
+    <div class="container" id="donate">
+        <div class="donate-section">
+            <h2 class="section-title">Support Our Cause</h2>
+            <p>Your generous contributions help us continue our religious and social activities like Annadaan, education support, and temple maintenance.</p>
             
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6">
-                    <h3 class="text-2xl font-heading font-semibold text-gray-900 border-l-4 border-saffron pl-4">Serving Humanity Through Faith & Education</h3>
-                    <p class="text-gray-600 leading-relaxed text-lg">
-                        We are a registered charitable trust committed to the holistic development of society. Rooted in the ancient wisdom of Mahakal and Tantra Sadhana, we channel spiritual energy towards tangible social good.
-                    </p>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-                        <div class="bg-orange-50 p-6 rounded-xl border border-orange-100 shadow-sm">
-                            <i class="fas fa-book-reader text-3xl text-saffron mb-3"></i>
-                            <h4 class="font-bold text-maroon text-lg mb-2">Shikshan (Education)</h4>
-                            <p class="text-sm text-gray-600">Providing educational support and resources to underprivileged children.</p>
-                        </div>
-                        <div class="bg-red-50 p-6 rounded-xl border border-red-100 shadow-sm">
-                            <i class="fas fa-om text-3xl text-maroon mb-3"></i>
-                            <h4 class="font-bold text-maroon text-lg mb-2">Dharmik (Religious)</h4>
-                            <p class="text-sm text-gray-600">Preserving ancient Vedic traditions, rituals, and spiritual knowledge.</p>
-                        </div>
-                        <div class="bg-yellow-50 p-6 rounded-xl border border-yellow-100 shadow-sm md:col-span-2">
-                            <i class="fas fa-hands-helping text-3xl text-gold mb-3"></i>
-                            <h4 class="font-bold text-maroon text-lg mb-2">Samajik (Social Welfare)</h4>
-                            <p class="text-sm text-gray-600">Organizing health camps, Annadaan (food distribution), and community support initiatives for the marginalized.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="relative mt-8 lg:mt-0">
-                    <div class="absolute -inset-4 bg-maroon rounded-2xl transform rotate-3 opacity-10"></div>
-                    <div class="absolute -inset-4 bg-saffron rounded-2xl transform -rotate-3 opacity-10"></div>
-                    <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Community Service" class="relative rounded-2xl shadow-2xl w-full object-cover h-[500px] border-4 border-white">
-                </div>
+            <div class="bank-details">
+                <strong>Bank Transfer Details:</strong><br><br>
+                Bank Name: [Your Bank Name]<br>
+                Account Name: UJJAYINI MAHAKAL TANTRA SADHANA PITH<br>
+                Account Number: [Your Account Number]<br>
+                IFSC Code: [Your IFSC Code]
             </div>
+
+            <p style="margin-top: 20px;"><strong>UPI Payment:</strong><br>
+               (You can add your UPI ID here, e.g., sanstha@upi)
+            </p>
+
+            <button class="donate-btn" onclick="alert('Please add your actual payment gateway link or QR code here for GitHub deployment.')">Donate Online Now</button>
         </div>
-    </section>
-
-    <!-- Photo Gallery / Portfolio -->
-    <section id="gallery" class="py-16 md:py-24 bg-gray-100 border-t border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-10">
-                <h2 class="text-3xl md:text-4xl font-heading font-bold text-maroon mb-4">Our Portfolio & Gallery</h2>
-                <div class="h-1.5 w-24 bg-saffron mx-auto rounded-full mb-6"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto text-lg">Glimpses of our religious ceremonies, community service, and divine darshan.</p>
-            </div>
-
-        
-            <!-- Image Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                
-                <!-- Item 1 -->
-                <div class="group relative bg-gray-200 rounded-xl overflow-hidden shadow-md min-h-[300px] flex items-center justify-center border border-gray-300">
-                    <i class="fas fa-image text-4xl text-gray-400 absolute z-0"></i>
-                    <img src="4c43049c-ea03-44bf-a242-4b417ced8dad.JPG" alt="Puja" class="absolute inset-0 w-full h-full object-cover z-10 transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 to-transparent p-4 pt-12 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <h4 class="text-white font-bold">Puja Rituals</h4>
-                    </div>
-                </div>
-
-                <!-- Item 2 -->
-                <div class="group relative bg-gray-200 rounded-xl overflow-hidden shadow-md min-h-[300px] flex items-center justify-center border border-gray-300">
-                    <i class="fas fa-image text-4xl text-gray-400 absolute z-0"></i>
-                    <img src="8e1ed896-480e-4bde-a803-3b95ea7a3d80.JPG" alt="Darshan" class="absolute inset-0 w-full h-full object-cover z-10 transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 to-transparent p-4 pt-12 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <h4 class="text-white font-bold">Maha Darshan</h4>
-                    </div>
-                </div>
-
-                <!-- Item 3 -->
-                <div class="group relative bg-gray-200 rounded-xl overflow-hidden shadow-md min-h-[300px] flex items-center justify-center border border-gray-300">
-                    <i class="fas fa-image text-4xl text-gray-400 absolute z-0"></i>
-                    <img src="35db5755-01cf-4ccb-897c-234f8870b0ac.JPG" alt="Shivalinga" class="absolute inset-0 w-full h-full object-cover z-10 transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 to-transparent p-4 pt-12 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <h4 class="text-white font-bold">Sacred Shivalinga</h4>
-                    </div>
-                </div>
-
-                <!-- Item 4 -->
-                <div class="group relative bg-gray-200 rounded-xl overflow-hidden shadow-md min-h-[300px] flex items-center justify-center border border-gray-300">
-                    <i class="fas fa-image text-4xl text-gray-400 absolute z-0"></i>
-                    <img src="75b275f4-8fed-49b2-91f2-caefac94a110.JPG" alt="Shringar" class="absolute inset-0 w-full h-full object-cover z-10 transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 to-transparent p-4 pt-12 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <h4 class="text-white font-bold">Divine Shringar</h4>
-                    </div>
-                </div>
-
-                <!-- Item 5 -->
-                <div class="group relative bg-gray-200 rounded-xl overflow-hidden shadow-md min-h-[300px] flex items-center justify-center border border-gray-300">
-                    <i class="fas fa-image text-4xl text-gray-400 absolute z-0"></i>
-                    <img src="96f2de45-c293-4097-8b4b-ad48600a6197.JPG" alt="Shringar 2" class="absolute inset-0 w-full h-full object-cover z-10 transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 to-transparent p-4 pt-12 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <h4 class="text-white font-bold">Festive Shringar</h4>
-                    </div>
-                </div>
-
-                <!-- Item 6 -->
-                <div class="group relative bg-gray-200 rounded-xl overflow-hidden shadow-md min-h-[300px] flex items-center justify-center border border-gray-300">
-                    <i class="fas fa-image text-4xl text-gray-400 absolute z-0"></i>
-                    <img src="423e6a32-9e14-4d1a-b812-30d9cee43c7e.JPG" alt="Gathering" class="absolute inset-0 w-full h-full object-cover z-10 transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 to-transparent p-4 pt-12 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <h4 class="text-white font-bold">Devotee Gathering</h4>
-                    </div>
-                </div>
-
-                <!-- Item 7 -->
-                <div class="group relative bg-gray-200 rounded-xl overflow-hidden shadow-md min-h-[300px] flex items-center justify-center border border-gray-300">
-                    <i class="fas fa-image text-4xl text-gray-400 absolute z-0"></i>
-                    <img src="824f6ab7-f0df-4c3e-a8b7-3429f986a6aa.JPG" alt="Deity" class="absolute inset-0 w-full h-full object-cover z-10 transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 to-transparent p-4 pt-12 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <h4 class="text-white font-bold">Deity Darshan</h4>
-                    </div>
-                </div>
-
-                <!-- Item 8 -->
-                <div class="group relative bg-gray-200 rounded-xl overflow-hidden shadow-md min-h-[300px] flex items-center justify-center border border-gray-300">
-                    <i class="fas fa-image text-4xl text-gray-400 absolute z-0"></i>
-                    <img src="989d5959-3df8-42d9-b170-8217c9d30827.JPG" alt="Deity Silver" class="absolute inset-0 w-full h-full object-cover z-10 transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 to-transparent p-4 pt-12 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <h4 class="text-white font-bold">Silver Adornments</h4>
-                    </div>
-                </div>
-
-                <!-- Item 9 -->
-                <div class="group relative bg-gray-200 rounded-xl overflow-hidden shadow-md min-h-[300px] flex items-center justify-center border border-gray-300">
-                    <i class="fas fa-image text-4xl text-gray-400 absolute z-0"></i>
-                    <img src="9282c8d0-3068-4913-bbe8-bbd33c64d00e.JPG" alt="Elephant Blessing" class="absolute inset-0 w-full h-full object-cover z-10 transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 to-transparent p-4 pt-12 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <h4 class="text-white font-bold">Elephant Blessing</h4>
-                    </div>
-                </div>
-
-                <!-- Item 10 -->
-                <div class="group relative bg-gray-200 rounded-xl overflow-hidden shadow-md min-h-[300px] flex items-center justify-center border border-gray-300 sm:col-span-2 lg:col-span-3 xl:col-span-2">
-                    <i class="fas fa-image text-4xl text-gray-400 absolute z-0"></i>
-                    <img src="374987e5-fa51-42ba-a095-45610396eacb.JPG" alt="Annadaan" class="absolute inset-0 w-full h-full object-cover z-10 transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 to-transparent p-6 pt-16 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <h4 class="text-white font-bold text-xl">Annadaan Initiative</h4>
-                        <p class="text-gray-200 text-sm mt-1">Feeding the community</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Donation / Payment Section -->
-    <section id="donate" class="py-16 md:py-24 bg-maroon relative border-t-8 border-saffron">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-heading font-bold text-gold mb-4">Support Our Mission</h2>
-                <div class="h-1.5 w-24 bg-white mx-auto rounded-full mb-6"></div>
-                <p class="text-gray-200 max-w-2xl mx-auto text-lg">
-                    Your generous donations help us sustain our religious activities, support education for the needy, and run our food distribution programs.
-                </p>
-            </div>
-
-            <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
-                <div class="grid grid-cols-1 lg:grid-cols-5">
-                    
-                    <!-- Bank Details / UPI Side -->
-                    <div class="lg:col-span-2 bg-orange-50 p-8 border-b lg:border-b-0 lg:border-r border-gray-200">
-                        <h3 class="text-xl font-bold text-maroon mb-6 border-b border-orange-200 pb-2">
-                            <i class="fas fa-qrcode text-saffron mr-2"></i> Direct Transfer
-                        </h3>
-                        
-                        <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm flex flex-col items-center mb-6">
-                            <!-- Placeholder QR -->
-                            <div class="w-40 h-40 bg-gray-100 border-2 border-dashed border-gray-300 flex items-center justify-center rounded-lg mb-3">
-                                <i class="fas fa-qrcode text-4xl text-gray-400"></i>
-                            </div>
-                            <p class="text-gray-800 font-bold mb-1">UPI ID: sanstha@sbi</p>
-                            <p class="text-xs text-gray-500 text-center">Scan with any UPI App</p>
-                        </div>
-
-                        <div class="space-y-3 bg-white p-5 rounded-xl border border-gray-200 shadow-sm text-sm">
-                            <h4 class="font-bold text-gray-800 mb-2"><i class="fas fa-university text-saffron mr-2"></i>Bank Details</h4>
-                            <p class="text-gray-600 flex justify-between border-b border-gray-100 pb-1"><span>Name:</span> <strong class="text-gray-900">Ujjayini Mahakal Trust</strong></p>
-                            <p class="text-gray-600 flex justify-between border-b border-gray-100 pb-1"><span>A/C No:</span> <strong class="text-gray-900">123456789012</strong></p>
-                            <p class="text-gray-600 flex justify-between border-b border-gray-100 pb-1"><span>IFSC:</span> <strong class="text-gray-900">SBIN0001234</strong></p>
-                            <p class="text-gray-600 flex justify-between"><span>Branch:</span> <strong class="text-gray-900">Ujjain Main</strong></p>
-                        </div>
-                    </div>
-
-                    <!-- Online Payment Form -->
-                    <div class="lg:col-span-3 p-8 md:p-10">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-6">
-                            <i class="fas fa-heart text-maroon mr-2"></i> Make an Online Donation
-                        </h3>
-                        <form id="donation-form" class="space-y-5">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
-                                    <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-saffron focus:border-saffron outline-none transition-shadow" placeholder="Your Name">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
-                                    <input type="tel" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-saffron focus:border-saffron outline-none transition-shadow" placeholder="Mobile No.">
-                                </div>
-                            </div>
-                            
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                                <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-saffron focus:border-saffron outline-none transition-shadow" placeholder="For receipt (optional)">
-                            </div>
-
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Donation Amount (₹) *</label>
-                                <div class="relative">
-                                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                        <span class="text-gray-500 font-bold">₹</span>
-                                    </div>
-                                    <input type="number" required min="100" class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-saffron focus:border-saffron outline-none transition-shadow text-lg font-semibold" placeholder="1000">
-                                </div>
-                            </div>
-
-                            <button type="submit" class="w-full py-4 mt-4 bg-maroon text-white font-bold rounded-lg hover:bg-red-900 focus:ring-4 focus:ring-red-300 transition-all text-lg shadow-lg flex items-center justify-center">
-                                Proceed to Payment <i class="fas fa-arrow-right ml-2"></i>
-                            </button>
-                        </form>
-                        
-                        <!-- Success Message -->
-                        <div id="payment-success" class="hidden h-full flex-col items-center justify-center text-center p-6 bg-green-50 rounded-xl border border-green-200">
-                            <div class="w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center text-3xl mb-4">
-                                <i class="fas fa-check"></i>
-                            </div>
-                            <h4 class="text-xl font-bold text-green-800 mb-2">Thank you!</h4>
-                            <p class="text-green-700 mb-6">This is a mock demo. No actual payment was processed. Your intent to support is highly appreciated!</p>
-                            <button onclick="resetForm()" class="px-6 py-2 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition-colors">Donate Again</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 py-12 border-t-4 border-gold">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <!-- Branding -->
-                <div>
-                    <div class="flex items-center gap-3 mb-4">
-                        <img src="8e47fde2-8b80-4281-be30-0216c6bee5ee.jpeg" alt="Ujjayini Mahakal Logo" class="h-12 w-12 rounded-full object-cover border-2 border-gold bg-white p-0.5">
-                        <h3 class="text-xl font-heading font-bold text-white">Ujjayini Mahakal Sanstha</h3>
-                    </div>
-                    <p class="text-sm leading-relaxed mb-4">
-                        Ujjayini Mahakal Tantra Sadhana Pith Shikshan V Dharmik Evam Samajik Sansth. A registered trust dedicated to serving the community.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-saffron hover:text-white transition-colors"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-saffron hover:text-white transition-colors"><i class="fab fa-youtube"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-saffron hover:text-white transition-colors"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-
-                <!-- Links -->
-                <div>
-                    <h3 class="text-lg font-bold text-white border-b border-gray-700 pb-2 mb-4">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#home" class="hover:text-saffron transition-colors"><i class="fas fa-angle-right mr-2 text-saffron text-xs"></i>Home</a></li>
-                        <li><a href="#about" class="hover:text-saffron transition-colors"><i class="fas fa-angle-right mr-2 text-saffron text-xs"></i>About Organization</a></li>
-                        <li><a href="#gallery" class="hover:text-saffron transition-colors"><i class="fas fa-angle-right mr-2 text-saffron text-xs"></i>Photo Gallery</a></li>
-                        <li><a href="#donate" class="hover:text-saffron transition-colors"><i class="fas fa-angle-right mr-2 text-saffron text-xs"></i>Make a Donation</a></li>
-                    </ul>
-                </div>
-
-                <!-- Contact Info -->
-                <div>
-                    <h3 class="text-lg font-bold text-white border-b border-gray-700 pb-2 mb-4">Contact Us</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-saffron w-4 text-center"></i>
-                            <span class="text-sm">Mahakal Marg, Near Mahakaleshwar Jyotirlinga, Ujjain, Madhya Pradesh - 456001</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-phone-alt mr-3 text-saffron w-4 text-center"></i>
-                            <span class="text-sm">+91 98765 43210</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-envelope mr-3 text-saffron w-4 text-center"></i>
-                            <span class="text-sm">contact@ujjayinimahakal.org</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-                <p>&copy; <span id="year"></span> Ujjayini Mahakal Sanstha. All Rights Reserved.</p>
-            </div>
-        </div>
+    <footer>
+        <img src="8e47fde2-8b80-4281-be30-0216c6bee5ee.jpeg" alt="Footer Logo" class="site-logo">
+        <p>&copy; 2026 Ujjayini Mahakal Tantra Sadhana Pith Shikshan V Dharmik Evam Samajik Sansth. All Rights Reserved.</p>
+        <p>Contact: [Your Contact Number] | Email: [Your Email Address]</p>
     </footer>
 
-    <!-- Interactive Scripts -->
-    <script>
-        // Update current year
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Mobile Menu Toggle Logic
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-        const icon = btn.querySelector('i');
-
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-            if (menu.classList.contains('hidden')) {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            } else {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            }
-        });
-
-        // Close menu on link click
-        menu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.add('hidden');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            });
-        });
-
-        // Form Submission Logic
-        const form = document.getElementById('donation-form');
-        const successMsg = document.getElementById('payment-success');
-
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const btnSubmit = form.querySelector('button[type="submit"]');
-            const originalContent = btnSubmit.innerHTML;
-            btnSubmit.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Processing...';
-            btnSubmit.disabled = true;
-            btnSubmit.classList.add('opacity-75', 'cursor-not-allowed');
-
-            // Simulate API call
-            setTimeout(() => {
-                form.classList.add('hidden');
-                successMsg.classList.remove('hidden');
-                successMsg.classList.add('flex');
-                
-                // Reset button for next time
-                btnSubmit.innerHTML = originalContent;
-                btnSubmit.disabled = false;
-                btnSubmit.classList.remove('opacity-75', 'cursor-not-allowed');
-            }, 1200);
-        });
-
-        function resetForm() {
-            form.reset();
-            successMsg.classList.remove('flex');
-            successMsg.classList.add('hidden');
-            form.classList.remove('hidden');
-        }
-    </script>
 </body>
 </html>
