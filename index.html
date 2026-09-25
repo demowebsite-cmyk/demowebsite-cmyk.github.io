@@ -41,21 +41,32 @@
             background-position: center;
             background-attachment: fixed;
         }
+        /* Hide scrollbar for mobile nav */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
     </style>
 </head>
 <body class="bg-brand-light text-gray-800 antialiased selection:bg-brand-saffron selection:text-white">
 
     <!-- Navigation Bar -->
     <nav class="glass-nav fixed w-full z-50 border-b border-gray-200 shadow-sm transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <div class="flex items-center gap-4">
-                    <img src="8e47fde2-8b80-4281-be30-0216c6bee5ee.jpeg" alt="Logo" class="h-14 w-14 rounded-full border-2 border-brand-saffron object-cover shadow-sm">
-                    <div class="hidden md:block text-brand-maroon font-bold text-sm leading-tight max-w-xs">
+                <!-- Logo and Name (Now responsive and visible on mobile) -->
+                <div class="flex items-center gap-2 sm:gap-4">
+                    <img src="8e47fde2-8b80-4281-be30-0216c6bee5ee.jpeg" alt="Logo" class="h-10 w-10 sm:h-14 sm:w-14 flex-shrink-0 rounded-full border-2 border-brand-saffron object-cover shadow-sm">
+                    <div class="text-brand-maroon font-bold text-[10px] sm:text-sm leading-tight max-w-[200px] sm:max-w-xs">
                         UJJAYINI MAHAKAL TANTRA SADHANA PITH<br>
-                        <span class="text-xs text-gray-500 font-normal">SHIKSHAN V DHARMIK EVAM SAMAJIK SANSTH</span>
+                        <span class="text-[8px] sm:text-xs text-gray-500 font-normal leading-none block mt-0.5 sm:mt-0">SHIKSHAN V DHARMIK EVAM SAMAJIK SANSTH</span>
                     </div>
                 </div>
+                
+                <!-- Desktop Navigation Links -->
                 <div class="hidden lg:flex items-center space-x-8">
                     <a href="#home" class="text-gray-700 hover:text-brand-saffron font-medium transition">Home</a>
                     <a href="#about" class="text-gray-700 hover:text-brand-saffron font-medium transition">About Us</a>
@@ -63,6 +74,15 @@
                     <a href="#videos" class="text-gray-700 hover:text-brand-saffron font-medium transition">Darshan</a>
                     <a href="#donate" class="bg-brand-maroon text-white px-6 py-2 rounded-full font-semibold hover:bg-red-800 transition shadow-md hover:shadow-lg">Support Us</a>
                 </div>
+            </div>
+            
+            <!-- Mobile Navigation Links (Scrollable row for smaller screens) -->
+            <div class="lg:hidden flex overflow-x-auto no-scrollbar space-x-6 pb-2 text-xs font-medium text-gray-600">
+                <a href="#home" class="whitespace-nowrap hover:text-brand-saffron">Home</a>
+                <a href="#about" class="whitespace-nowrap hover:text-brand-saffron">About Us</a>
+                <a href="#gallery" class="whitespace-nowrap hover:text-brand-saffron">Gallery</a>
+                <a href="#videos" class="whitespace-nowrap hover:text-brand-saffron">Darshan</a>
+                <a href="#donate" class="whitespace-nowrap font-bold text-brand-maroon">Support Us</a>
             </div>
         </div>
     </nav>
@@ -91,7 +111,7 @@
 
     <!-- About Section -->
     <section id="about" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-bold text-brand-maroon mb-4">About Our Organization</h2>
                 <div class="h-1 w-20 bg-brand-saffron mx-auto rounded"></div>
@@ -130,7 +150,7 @@
     </section>
 
     <!-- Photo Gallery -->
-    <section id="gallery" class="py-20 bg-gray-50">
+    <section id="gallery" class="py-20 bg-gray-50 pt-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-end mb-12">
                 <div>
@@ -191,7 +211,7 @@
     </section>
 
     <!-- Video Gallery -->
-    <section id="videos" class="py-20 bg-white">
+    <section id="videos" class="py-20 bg-white pt-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-brand-maroon mb-2">Video Gallery</h2>
@@ -200,37 +220,37 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Video Items -->
-                <div class="bg-black rounded-xl overflow-hidden shadow-lg border-2 border-gray-100 hover:border-brand-saffron transition-colors">
-                    <video src="648fb550-6fcc-4b64-b676-012948b8ef92.MP4" controls class="w-full aspect-video object-cover" preload="metadata"></video>
+                <!-- Video Items with #t=0.001 added to force thumbnail generation -->
+                <div class="bg-black rounded-xl overflow-hidden shadow-lg border-2 border-gray-100 hover:border-brand-saffron transition-colors aspect-video">
+                    <video src="648fb550-6fcc-4b64-b676-012948b8ef92.MP4#t=0.001" controls class="w-full h-full object-cover" preload="metadata"></video>
                 </div>
-                <div class="bg-black rounded-xl overflow-hidden shadow-lg border-2 border-gray-100 hover:border-brand-saffron transition-colors">
-                    <video src="54958fd0-e5ff-44ba-9c1b-beb21c43d72e.MP4" controls class="w-full aspect-video object-cover" preload="metadata"></video>
+                <div class="bg-black rounded-xl overflow-hidden shadow-lg border-2 border-gray-100 hover:border-brand-saffron transition-colors aspect-video">
+                    <video src="54958fd0-e5ff-44ba-9c1b-beb21c43d72e.MP4#t=0.001" controls class="w-full h-full object-cover" preload="metadata"></video>
                 </div>
-                <div class="bg-black rounded-xl overflow-hidden shadow-lg border-2 border-gray-100 hover:border-brand-saffron transition-colors">
-                    <video src="837836c6-0c42-4725-b883-7c0b54f62783.MP4" controls class="w-full aspect-video object-cover" preload="metadata"></video>
+                <div class="bg-black rounded-xl overflow-hidden shadow-lg border-2 border-gray-100 hover:border-brand-saffron transition-colors aspect-video">
+                    <video src="837836c6-0c42-4725-b883-7c0b54f62783.MP4#t=0.001" controls class="w-full h-full object-cover" preload="metadata"></video>
                 </div>
-                <div class="bg-black rounded-xl overflow-hidden shadow-lg border-2 border-gray-100 hover:border-brand-saffron transition-colors">
-                    <video src="9807580d-aafb-4b45-82aa-53bb4455ba6d.MP4" controls class="w-full aspect-video object-cover" preload="metadata"></video>
+                <div class="bg-black rounded-xl overflow-hidden shadow-lg border-2 border-gray-100 hover:border-brand-saffron transition-colors aspect-video">
+                    <video src="9807580d-aafb-4b45-82aa-53bb4455ba6d.MP4#t=0.001" controls class="w-full h-full object-cover" preload="metadata"></video>
                 </div>
-                <div class="bg-black rounded-xl overflow-hidden shadow-lg border-2 border-gray-100 hover:border-brand-saffron transition-colors">
-                    <video src="af3eca17-1218-4b74-a1db-d8efd8f67e7b.MP4" controls class="w-full aspect-video object-cover" preload="metadata"></video>
+                <div class="bg-black rounded-xl overflow-hidden shadow-lg border-2 border-gray-100 hover:border-brand-saffron transition-colors aspect-video">
+                    <video src="af3eca17-1218-4b74-a1db-d8efd8f67e7b.MP4#t=0.001" controls class="w-full h-full object-cover" preload="metadata"></video>
                 </div>
-                <div class="bg-black rounded-xl overflow-hidden shadow-lg border-2 border-gray-100 hover:border-brand-saffron transition-colors">
-                    <video src="da7077f2-5e7c-44f0-b347-fb7860342cd9.MP4" controls class="w-full aspect-video object-cover" preload="metadata"></video>
+                <div class="bg-black rounded-xl overflow-hidden shadow-lg border-2 border-gray-100 hover:border-brand-saffron transition-colors aspect-video">
+                    <video src="da7077f2-5e7c-44f0-b347-fb7860342cd9.MP4#t=0.001" controls class="w-full h-full object-cover" preload="metadata"></video>
                 </div>
-                <div class="bg-black rounded-xl overflow-hidden shadow-lg border-2 border-gray-100 hover:border-brand-saffron transition-colors">
-                    <video src="e0ad4b12-e79e-4f15-a986-adb9b307820b.MP4" controls class="w-full aspect-video object-cover" preload="metadata"></video>
+                <div class="bg-black rounded-xl overflow-hidden shadow-lg border-2 border-gray-100 hover:border-brand-saffron transition-colors aspect-video">
+                    <video src="e0ad4b12-e79e-4f15-a986-adb9b307820b.MP4#t=0.001" controls class="w-full h-full object-cover" preload="metadata"></video>
                 </div>
-                <div class="bg-black rounded-xl overflow-hidden shadow-lg border-2 border-gray-100 hover:border-brand-saffron transition-colors">
-                    <video src="VIDEO-2026-09-25-22-36-51.mp4" controls class="w-full aspect-video object-cover" preload="metadata"></video>
+                <div class="bg-black rounded-xl overflow-hidden shadow-lg border-2 border-gray-100 hover:border-brand-saffron transition-colors aspect-video">
+                    <video src="VIDEO-2026-09-25-22-36-51.mp4#t=0.001" controls class="w-full h-full object-cover" preload="metadata"></video>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Donate Section -->
-    <section id="donate" class="py-20 bg-brand-light">
+    <section id="donate" class="py-20 bg-brand-light pt-10">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
                 <div class="grid grid-cols-1 md:grid-cols-2">
